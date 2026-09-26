@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"strings"
-	//"fmt"
+	"path/filepath"
 	"os"
 	"os/exec"
 )
@@ -19,7 +19,9 @@ type User struct {
 }
 
 func loadConfig() User {
-	file, _ := os.Open("config.json")
+	home := os.Getenv("HOME")
+	path := filepath.Join(home, ".config", "asuanna", "config.json")
+	file, _ := os.Open(path)
 	defer file.Close()
 
 	var user User
