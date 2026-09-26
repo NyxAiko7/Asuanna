@@ -1,0 +1,59 @@
+package main
+
+import (
+	"encoding/json"
+	"strings"
+	//"fmt"
+	"os"
+	"os/exec"
+)
+
+type User struct {
+	Path string `json:"Path"`
+	Wallpaperdaemon string `json:"wallpaper-daemon"`
+	Wal  string `json:"Wal"`
+	Pkill string `json:"pkill"`
+	Astart string `json"astart"`
+	Swaync string `json"swaync"`
+	WalTelegram string `json"WalTelegram"`
+}
+
+func loadConfig() User {
+	file, _ := os.Open("config.json")
+	defer file.Close()
+
+	var user User
+	decoder := json.NewDecoder(file)
+	_ = decoder.Decode(&user)
+
+	return user
+}
+
+func restartags(user User){
+	cmd := exec.Command("sh", "-c", user.Pkill)
+	cmd1 := exec.Command("sh", "-c", user.Astart)
+	defer cmd.Start()
+	defer cmd1.Start()
+}
+
+func getpywal(user User){
+	if user.Wal == "yes" || user.Wal == "Yes"{
+		cmd := exec.Command("wal", "-i", user.Path)
+		defer cmd.Start()
+	}
+}
+
+func getpywalTelegram(user User){
+	cmd := exec.Command("sh", "-c", user.WalTelegram)
+	defer cmd.Start()
+}
+
+func installwallppepar(user User) error{
+	args := append(strings.Fields(user.Wallpaperdaemon), user.Path)
+	return exec.Command(args[0], args[1:]...).Start()
+}
+
+func restarswaync(user User){
+	cmd := exec.Command("sh", "-c", user.Swaync)
+	defer cmd.Start()
+}

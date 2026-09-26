@@ -1,0 +1,9 @@
+{
+    "Path" : "/home/aiko/wall/wallhaven-lyydzp.jpg",
+    "wallpaper-daemon": "awww img",
+    "wal" : "Yes",
+    "pkill": "pkill -f ags",
+    "astart": "ags run /home/aiko/.config/ags/app.tsx",
+    "swaync": "swaync-client -R && swaync-client -rs",
+    "WalTelegram" : "wal-telegram --wal"
+}
