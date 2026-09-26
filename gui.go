@@ -1,10 +1,6 @@
 package main
 
 import (
-	//"fmt"
-	//"os"
-	//"os/exec"
-
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
@@ -20,15 +16,12 @@ func main() {
 	w := a.NewWindow("programa swap wallpeper")
 	w.Resize(fyne.NewSize(1920, 1080))
 
-	// Метка
+
 	label := widget.NewLabel("programa swap wallpeper")
 
-	//wallpaper wvwie
 	img := canvas.NewImageFromFile(user.Path)
 	img.FillMode = canvas.ImageFillContain
-	//img.SetMinSize(fyne.NewSize(400, 300))
 
-	// Кнопка с обработчиком нажатия
 	button := widget.NewButton("restart ags", func() {
 		restartags(user)
 	})
