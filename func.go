@@ -18,10 +18,17 @@ type User struct {
 	WalTelegram string `json"WalTelegram"`
 }
 
-func loadConfig() User {
-	home := os.Getenv("HOME")
-	path := filepath.Join(home, ".config", "asuanna", "config.json")
-	file, _ := os.Open(path)
+func loadConfig(customPath string) User {
+	path := customPath
+	if path == "" {
+		home := os.Getenv("HOME")
+		path = filepath.Join(home, ".config", "asuanna", "config.json")
+	}
+
+	file, err := os.Open(path)
+	if err != nil {
+		return User{}
+	}
 	defer file.Close()
 
 	var user User
