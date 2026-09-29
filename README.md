@@ -14,17 +14,11 @@ Asuanna provides a graphical interface to quickly apply wallpapers, update color
 * **Service Management:** One-click restart for AGS and SwayNC.
 * **Custom Profiles:** Load alternative JSON configuration files on the fly.
 
-## Build and Run
-
-### Prerequisites
-* **Go 1.18+**
-* Standard Fyne graphics dependencies (e.g., `libgl1-mesa-dev`, `libxcursor-dev`, `libxrandr-dev` on Linux).
-
 ### Running from Source
 
 ```bash
 # Clone the repository
-git clone [https://github.com/NyxAiko7/asuanna.git](https://github.com/NyxAiko7/asuanna.git)
+git clone https://github.com/NyxAiko7/asuanna.git
 cd asuanna
 
 # Install dependencies and run
