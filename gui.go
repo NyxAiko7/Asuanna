@@ -60,7 +60,7 @@ func main() {
 	})
 	pywalGrid := container.NewGridWithColumns(2, btnPywal, btnTelegram)
 
-	btnAgs := widget.NewButtonWithIcon("Restart AGS", theme.ViewRefreshIcon(), func() {
+	btnAgs := widget.NewButtonWithIcon("Restart waybar", theme.ViewRefreshIcon(), func() {
 		restartags(currentUser)
 	})
 	btnSwaync := widget.NewButtonWithIcon("Restart SwayNC", theme.ViewRefreshIcon(), func() {

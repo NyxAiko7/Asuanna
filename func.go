@@ -39,10 +39,8 @@ func loadConfig(customPath string) User {
 }
 
 func restartags(user User){
-	cmd := exec.Command("sh", "-c", user.Pkill)
-	cmd1 := exec.Command("sh", "-c", user.Astart)
+	cmd := exec.Command("sh", "-c", "pkill waybar && waybar")
 	defer cmd.Start()
-	defer cmd1.Start()
 }
 
 func getpywal(user User){
