@@ -39,7 +39,7 @@ func loadConfig(customPath string) User {
 }
 
 func restartags(user User){
-	cmd := exec.Command("sh", "-c", "pkill waybar && waybar")
+	cmd := exec.Command("sh", "-c", "killall -SIGUSR2 waybar")
 	defer cmd.Start()
 }
 
